@@ -1,9 +1,10 @@
 .header {
-  background-color: #A0C531;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #A0C531 0%, #94b82a 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   position: sticky;
   top: 0;
   z-index: 1000;
+  flex-shrink: 0;
 }
 
 .navbar {
@@ -12,7 +13,8 @@
 }
 
 .nav-container {
-  max-width: 1400px;
+  max-width: 100%;
+  width: 100%;
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
@@ -29,9 +31,11 @@
 
 .logo-text {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 700;
   color: #fff;
   text-decoration: none;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .nav-menu {
