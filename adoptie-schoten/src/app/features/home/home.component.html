@@ -1,0 +1,180 @@
+<div class="page-wrapper">
+  <!-- Hero Section -->
+  <section class="hero-section" [style.backgroundImage]="'url(/banner-animals.jpg)'">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Geef een dier een thuis vol liefde</h1>
+      <p class="hero-subtitle">Adoptie Schoten helpt dieren in nood om een nieuw begin te krijgen</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary" routerLink="/pet-list">Dieren ontdekken</button>
+        <button class="btn btn-secondary" routerLink="/adoption-procedure">Adoptieprocedure</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="page-container">
+    
+    <!-- About Intro Section -->
+    <section class="about-intro-section">
+      <h2 class="section-title">Over dierenasiel schoten</h2>
+      <p class="about-intro-text">
+        Welkom bij Adoptie Schoten! 🐾 We zijn een erkend dierenhuis waar verlaten en verwaarloosde dieren altijd welkom zijn. Onze passie? Elke hond en kat een tweede kans geven in een liefdevol thuis!
+      </p>
+      
+      <p class="about-closing-text">
+        Tot nu toe hebben we al <strong>meer dan 500 dieren gered</strong> en <strong>350+ succesvolle adopties</strong> gerealiseerd. Dag en nacht verzorgen we onze viervoeters met liefde en professionele zorg. Dit alles is mogelijk dankzij onze fantastische <strong>100+ vrijwilligers</strong> en donateurs die ons werk steunen. We geloven dat elk dier waardevol is en het verdient om bemind en verzorgd te worden. Met jouw hulp kunnen we nog veel meer dieren een thuis geven! 💛
+      </p>
+      
+      <div class="about-highlights">
+        <div class="highlight-item">
+          <strong>⚠️ Belangrijk:</strong> Wij werken <strong>enkel op afspraak</strong>. Gelieve altijd vooraf contact met ons op te nemen voordat u het asiel bezoekt.
+        </div>
+        <div class="highlight-item">
+          <strong>🕐 Openingstijden:</strong> Weekdagen 13u30 - 17u30 | Zaterdag 12u00 - 16u00 | Zondag gesloten
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo Categories Section -->
+    <section class="photo-categories-section">
+      <div class="section-header">
+        <h2 class="section-title">Ontdek onze dieren</h2>
+        <p class="section-subtitle">Klik hieronder om onze beschikbare honden of katten te zien</p>
+      </div>
+
+      <div class="photo-categories-grid">
+        <a routerLink="/pet-list" class="photo-category-card dogs-card">
+          <div class="photo-category-image">
+            <img src="/honden.jpg" alt="Beschikbare honden">
+            <div class="photo-overlay">
+              <div class="photo-content">
+                <h3>Honden</h3>
+                <p>Bekijk onze beschikbare honden</p>
+                <span class="cta-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a routerLink="/pet-list" class="photo-category-card cats-card">
+          <div class="photo-category-image">
+            <img src="/katten.jpg" alt="Beschikbare katten">
+            <div class="photo-overlay">
+              <div class="photo-content">
+                <h3>Katten</h3>
+                <p>Bekijk onze beschikbare katten</p>
+                <span class="cta-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Spotlight Section -->
+    <section class="animals-section">
+      <div class="section-header">
+        <h2 class="section-title">Dieren in de schijnwerper</h2>
+        <p class="section-subtitle">Maak kennis met onze huidige spotlight dieren</p>
+      </div>
+
+      <div class="animals-grid spotlight-grid">
+        <div class="animal-card" *ngFor="let animal of spotlightAnimals">
+          <div class="animal-image" [style.background]="'linear-gradient(135deg, ' + animal.color1 + ' 0%, ' + animal.color2 + ' 100%)'">
+            <span class="animal-emoji">{{ animal.emoji }}</span>
+          </div>
+          <div class="animal-info">
+            <h3 class="animal-name">{{ animal.name }}</h3>
+            <p class="animal-type">{{ animal.type }}</p>
+            <p class="animal-age">{{ animal.age }} jaar</p>
+            <p class="animal-description">{{ animal.description }}</p>
+            <a routerLink="/pet-details/{{ animal.id }}" class="btn-small">Meer info</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="animals-cta">
+        <a routerLink="/pet-list" class="btn btn-primary">Alle dieren bekijken</a>
+      </div>
+    </section>
+
+    <!-- Adoption Procedure Section -->
+    <section class="adoption-procedure-section">
+      <div class="section-header">
+        <h2 class="section-title">Hoe verloopt een adoptie?</h2>
+        <p class="section-subtitle">Volg deze stappen naar je nieuwe huisgenoot</p>
+      </div>
+
+      <div class="procedure-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3 class="step-title">Dier uitkiezen</h3>
+          <p>Blader door onze beschikbare dieren en vind de die bij u past.</p>
+        </div>
+
+        <div class="step-arrow">→</div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3 class="step-title">Aanvraag indienen</h3>
+          <p>Vul ons adoptieanvraagformulier in en vertel ons over jezelf.</p>
+        </div>
+
+        <div class="step-arrow">→</div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3 class="step-title">Kennismaking</h3>
+          <p>Maak kennis met onze lieve viervoeters (neem ook je eigen hond mee)</p>
+        </div>
+
+        <div class="step-arrow">→</div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3 class="step-title">Huisbezoek</h3>
+          <p>Wij voeren een huisbezoek uit om beide partijen te beschermen.</p>
+        </div>
+
+        <div class="step-arrow">→</div>
+
+        <div class="step">
+          <div class="step-number">5</div>
+          <h3 class="step-title">Welkom thuis!</h3>
+          <p>Het dier verhuist naar zijn nieuwe liefdevol thuis!</p>
+        </div>
+      </div>
+
+      <div class="procedure-cta">
+        <a routerLink="/adoption-procedure" class="btn btn-primary">Volledige adoptieprocedure</a>
+      </div>
+    </section>
+
+
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+      <div class="cta-grid">
+        <div class="cta-card">
+          <h3>Contacteer ons</h3>
+          <p>Heb je vragen? Neem contact op!</p>
+          <a routerLink="/contact" class="btn btn-outline">Neem contact op</a>
+        </div>
+
+        <div class="cta-card">
+          <h3>Word sponsor</h3>
+          <p>Help ons met jouw zakelijke ondersteuning</p>
+          <a routerLink="/sponsors" class="btn btn-outline">Sponsorships</a>
+        </div>
+
+        <div class="cta-card">
+          <h3>Meer informatie</h3>
+          <p>Nuttige links en bronnen</p>
+          <a routerLink="/links" class="btn btn-outline">Bekijk links</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>

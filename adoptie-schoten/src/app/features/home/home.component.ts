@@ -1,138 +1,155 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+
+interface Animal {
+  id: number;
+  name: string;
+  type: string;
+  age: number;
+  description: string;
+  emoji: string;
+  color1: string;
+  color2: string;
+}
+
+interface Testimonial {
+  text: string;
+  name: string;
+  petName: string;
+  avatar: string;
+}
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  template: `
-    <div class="page-wrapper">
-      <!-- Hero Banner -->
-      <div class="hero-banner">
-        <img src="/banner-animals.jpg" alt="Banner met dieren" class="banner-image">
-        <div class="banner-overlay"></div>
-        <div class="banner-content">
-          <h1 class="banner-title">Welkom bij Adoptie Schoten</h1>
-          <p class="banner-subtitle">Geef een dier een thuis vol liefde</p>
-        </div>
-      </div>
-
-      <!-- Main Content -->
-      <div class="page-container">
-        <div class="page-header">
-          <h2>Over Adoptie Schoten</h2>
-          <p class="subtitle">Ons dierenshuis helpt dieren in nood</p>
-        </div>
-        <div class="page-content">
-          <p>Dit is de homepage van ons dierenshuis. Hier vindt u informatie over adoptie, opvang en ondersteuning van dieren.</p>
-        </div>
-      </div>
-    </div>
-  `,
-  styles: [`
-    .page-wrapper {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      background: #f8f9fa;
-    }
-    .hero-banner {
-      position: relative;
-      height: 350px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .banner-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-    .banner-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(160, 197, 49, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
-    }
-    .banner-content {
-      position: relative;
-      z-index: 10;
-      text-align: center;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-    .banner-title {
-      font-size: 3rem;
-      font-weight: 700;
-      margin: 0 0 15px 0;
-      letter-spacing: -1px;
-    }
-    .banner-subtitle {
-      font-size: 1.3rem;
-      font-weight: 300;
-      margin: 0;
-    }
-    .page-container {
-      max-width: 1200px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 60px 30px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .page-header {
-      margin-bottom: 40px;
-    }
-    h2 {
-      font-size: 2.2rem;
-      color: #A0C531;
-      margin: 0 0 15px 0;
-      font-weight: 700;
-    }
-    .subtitle {
-      font-size: 1.1rem;
-      color: #666;
-      margin: 0;
-    }
-    .page-content {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #555;
-    }
-    @media (max-width: 768px) {
-      .hero-banner {
-        height: 250px;
-      }
-      .banner-title {
-        font-size: 2rem;
-      }
-      .banner-subtitle {
-        font-size: 1rem;
-      }
-      .page-container {
-        padding: 40px 20px;
-      }
-      h2 {
-        font-size: 1.8rem;
-      }
-    }
-    @media (max-width: 480px) {
-      .hero-banner {
-        height: 180px;
-      }
-      .banner-title {
-        font-size: 1.5rem;
-      }
-      .banner-subtitle {
-        font-size: 0.9rem;
-      }
-    }
-  `]
+  imports: [CommonModule, FormsModule, RouterLink],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css'
 })
-export class HomeComponent { }
+export class HomeComponent {
+  newsletterEmail: string = '';
+
+  spotlightAnimals: Animal[] = [
+    {
+      id: 1,
+      name: 'Bella',
+      type: 'Hond - Labrador',
+      age: 3,
+      description: 'Speelse en loyale vriendschappelijke hond, perfect voor gezinnen.',
+      emoji: '🐕',
+      color1: '#61C1C7',
+      color2: '#47B3F1'
+    },
+    {
+      id: 2,
+      name: 'Luna',
+      type: 'Kat - Tabby',
+      age: 2,
+      description: 'Zachte en knuffelbare huiskat, houdt van interactie en spelen.',
+      emoji: '🐈',
+      color1: '#A0C531',
+      color2: '#61C1C7'
+    }
+  ];
+
+  featuredAnimals: Animal[] = [
+    {
+      id: 1,
+      name: 'Bella',
+      type: 'Hond - Labrador',
+      age: 3,
+      description: 'Speelse en loyale vriendschappelijke hond, perfect voor gezinnen.',
+      emoji: '🐕',
+      color1: '#61C1C7',
+      color2: '#47B3F1'
+    },
+    {
+      id: 2,
+      name: 'Luna',
+      type: 'Kat - Tabby',
+      age: 2,
+      description: 'Zachte en knuffelbare huiskat, houdt van interactie en spelen.',
+      emoji: '🐈',
+      color1: '#A0C531',
+      color2: '#61C1C7'
+    },
+    {
+      id: 3,
+      name: 'Max',
+      type: 'Hond - Golden Retriever',
+      age: 4,
+      description: 'Energieke hond die van buiten spelen houdt. Zeer gedocil.',
+      emoji: '🐕',
+      color1: '#47B3F1',
+      color2: '#A0C531'
+    },
+    {
+      id: 4,
+      name: 'Whiskers',
+      type: 'Kat - Perzie',
+      age: 1,
+      description: 'Jonge playful kat met schattige persoonlijkheid.',
+      emoji: '🐈',
+      color1: '#61C1C7',
+      color2: '#A0C531'
+    },
+    {
+      id: 5,
+      name: 'Rocky',
+      type: 'Hond - Duitse Herder',
+      age: 5,
+      description: 'Intelligente en beschermende hond, ideaal voor actieve gezinnen.',
+      emoji: '🐕',
+      color1: '#A0C531',
+      color2: '#47B3F1'
+    },
+    {
+      id: 6,
+      name: 'Mittens',
+      type: 'Kat - Wit',
+      age: 2,
+      description: 'Lieve en rustige kat, perfect gezelschapsdier.',
+      emoji: '🐈',
+      color1: '#47B3F1',
+      color2: '#61C1C7'
+    }
+  ];
+
+  testimonials: Testimonial[] = [
+    {
+      text: 'Adopteren bij Adoptie Schoten was de beste beslissing van ons leven! Het hele proces was smooth en het team was erg ondersteunend.',
+      name: 'Jan van der Berg',
+      petName: 'met Bella de Labrador',
+      avatar: '👨‍👩‍👧'
+    },
+    {
+      text: 'Luna heeft ons gezin compleet gemaakt. Ze is nu al een deel van de familie. Dank je wel Adoptie Schoten!',
+      name: 'Maria García',
+      petName: 'met Luna de kat',
+      avatar: '👩‍👩‍👧'
+    },
+    {
+      text: 'Het was mijn eerste keer adopteren en Adoptie Schoten begeleidde me door elk stap. Professioneel en liefdevol!',
+      name: 'Peter Jansen',
+      petName: 'met Max de Golden',
+      avatar: '👨‍💼'
+    },
+    {
+      text: 'We hebben online kennis gemaakt met Rocky en konden niet wachten om hem mee naar huis te nemen. Perfect match!',
+      name: 'Sarah & Tom',
+      petName: 'met Rocky',
+      avatar: '👨‍👩‍👦'
+    }
+  ];
+
+  subscribeNewsletter() {
+    if (this.newsletterEmail) {
+      console.log('Subscription email:', this.newsletterEmail);
+      // TODO: Implement actual newsletter subscription
+      alert(`Bedankt voor het abonneren met: ${this.newsletterEmail}`);
+      this.newsletterEmail = '';
+    }
+  }
+}
