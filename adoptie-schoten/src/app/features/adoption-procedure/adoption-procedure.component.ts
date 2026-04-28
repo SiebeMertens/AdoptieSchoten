@@ -68,18 +68,18 @@ import { Component } from '@angular/core';
   `,
   styles: [`
     :host { --color-primary: #61C1C7; --color-secondary: #47B3F1; --color-tertiary: #A0C531; --color-white: #FFFFFF; --color-dark: #1a1a1a; --color-light: #f8f9fa; --color-gray: #666666; }
-    .page-wrapper { display: flex; flex-direction: column; height: calc(100vh - 70px); background: linear-gradient(135deg, var(--color-light) 0%, #e8f0f7 100%); overflow: auto; }
-    .page-container { max-width: 1400px; width: 100%; margin: 0 auto; padding: 20px 25px; flex: 1; display: flex; flex-direction: column; }
+    .page-wrapper { display: flex; flex-direction: column; min-height: calc(100vh - 70px); background: linear-gradient(135deg, var(--color-light) 0%, #e8f0f7 100%); }
+    .page-container { max-width: 1400px; width: 100%; margin: 0 auto; padding: 20px 25px; display: flex; flex-direction: column; }
     .page-header { margin-bottom: 15px; text-align: center; }
     h1 { font-size: 2rem; color: var(--color-tertiary); margin: 0 0 5px 0; font-weight: 800; }
     .subtitle { font-size: 1rem; color: var(--color-gray); margin: 0; font-weight: 300; }
     
-    .video-section { margin-bottom: 20px; flex-shrink: 1; min-height: auto; }
+    .video-section { margin-bottom: 25px; flex-shrink: 0; }
     .section-title { font-size: 1.6rem; font-weight: 700; color: var(--color-dark); text-align: center; margin: 0 0 15px 0; }
     .video-container { position: relative; width: 100%; max-width: 800px; margin: 0 auto; background: var(--color-white); border-radius: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); overflow: hidden; }
-    .adoption-video { width: 100%; height: auto; display: block; background: #000; max-height: 350px; object-fit: cover; }
+    .adoption-video { width: 100%; height: auto; display: block; background: #000; max-height: 500px; object-fit: cover; }
     
-    .steps-section { margin-bottom: 20px; flex-shrink: 0; }
+    .steps-section { margin-bottom: 25px; }
     .steps-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin: 15px 0; }
     .step-item { background: var(--color-white); padding: 18px 15px; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; display: flex; flex-direction: column; }
     .step-item:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); }
