@@ -1,4 +1,5 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-photos',
@@ -126,29 +127,37 @@ export class PhotosComponent implements OnInit {
   photos: string[] = [];
   selectedPhotoIndex: number | null = null;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   ngOnInit() {
-    this.loadPhotos();
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo(0, 0);
+      this.loadPhotos();
+    }
   }
 
-  async loadPhotos() {
-    try {
-      // Load the manifest file that lists all photos
-      const response = await fetch('/fotos/manifest.json');
-      if (!response.ok) {
-        throw new Error('Failed to load manifest');
-      }
-      
-      const manifest = await response.json();
-      this.photos = manifest.photos
-        .map((file: string) => `/fotos/${file}`)
-        .sort();
-      
-      console.log('Loaded photos dynamically:', this.photos);
-    } catch (error) {
-      console.error('Error loading photos:', error);
-      // Fallback to empty array if manifest not found
-      this.photos = [];
-    }
+  loadPhotos() {
+    // Hardcoded list of photos - loads instantly without network delay
+    // To add more photos: Add filename to this array
+    const photoFiles = [
+      'binnenhok.jpg',
+      'buiten.jpg',
+      'buitenhokkenhond.jpg',
+      'buiteznhokken.jpg',
+      'bureel.jpg',
+      'hondenhokbinnen.jpg',
+      'ingang.jpg',
+      'keuken.jpg',
+      'loopweide.jpg',
+      'quarantaine.jpg',
+      'quarantaine2.jpg'
+    ];
+
+    this.photos = photoFiles
+      .map((file: string) => `/fotos/${file}`)
+      .sort();
+    
+    console.log('Loaded photos:', this.photos);
   }
 
   openLightbox(index: number) {
